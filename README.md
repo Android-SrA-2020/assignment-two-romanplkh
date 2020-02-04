@@ -8,7 +8,7 @@ Requirements:
 * you must implement an about page (fragment)
 * you must implement a cheat page (fragment)
 * you must use safeargs to pass the current question and answer to the cheat page. 
-* the cheat page should give the user one last chance to decide if they really really want to cheat. 
+* the cheat page should give the user one last chance to decide if they really really want to cheat.  (cheat page - fragment)
 * you must implement back navigation through the up button in the action bar
 * you must add a navigation drawer with a link to the about page
 * you must add an overflow menu with a link to the about page
