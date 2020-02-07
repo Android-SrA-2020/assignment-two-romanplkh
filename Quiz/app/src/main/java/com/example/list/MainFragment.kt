@@ -2,6 +2,7 @@ package com.example.list
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Button
@@ -48,6 +49,10 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+        Log.i("My Log", "onCreate Called")
+
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate<FragmentMainBinding>(
             inflater,
@@ -55,28 +60,61 @@ class MainFragment : Fragment() {
         )
 
 
-        //ADD CLICK LISTENERS TO BUTTONS
-        binding.nextButton.setOnClickListener {
-            nextQ()
+
+
+        //GET VALUE FROM SAVED STATE
+        if (savedInstanceState != null) {
+            questionIndex = savedInstanceState.getInt("questionIndex", 0)
+            updateView();
         }
 
-        binding.pervButton.setOnClickListener {
-            prevQ();
-        }
 
-        binding.trueButton.setOnClickListener {
-            answer(true)
-        }
-        binding.falseButton.setOnClickListener {
-            answer(false)
+
+
+        binding.apply {
+            nextButton.setOnClickListener {
+                nextQ()
+            }
+            pervButton.setOnClickListener {
+                prevQ();
+            }
+            trueButton.setOnClickListener {
+                answer(true)
+            }
+            falseButton.setOnClickListener {
+                answer(false)
+            }
+
+
+            //Cheat Button Click Navigate to
+            cheatActionButton.setOnClickListener { view: View ->
+
+                val quest = getString(questionBank[questionIndex].resourceId);
+
+                view.findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToCheatFragment(
+                        quest,
+                        questionBank[questionIndex].answer.toString()
+                    )
+                )
+            }
         }
 
 
         //TELL VIEW THAT IT HAS AN OPTION MENU, SO IT WILL ENABLE IT
         setHasOptionsMenu(true)
 
-
         return binding.root
+    }
+
+
+
+
+    //SAVE STATE
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("questionIndex", questionIndex)
+
     }
 
 

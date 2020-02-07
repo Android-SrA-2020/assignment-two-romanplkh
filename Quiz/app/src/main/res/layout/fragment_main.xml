@@ -1,86 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
         tools:context=".MainActivity">
+
 
         <TextView
             android:id="@+id/txt_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="350dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:height="130dp"
             android:text="@string/question_1"
             android:textAlignment="center"
-            android:textSize="@dimen/textSize"
-            android:padding="@dimen/textPadding"/>
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/trueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trueAnswer"
+            app:layout_constraintBaseline_toBaselineOf="@+id/falseButton"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ButtonStyle" />
 
+        <Button
+            android:id="@+id/falseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="@string/falseAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_question"
+            tools:ignore="ButtonStyle" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/cheatActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:text="@string/cheatButtonText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/next_button" />
+
+        <Button
+            android:id="@+id/perv_button"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pervQ"
+            app:layout_constraintBaseline_toBaselineOf="@+id/next_button"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nextQ"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/falseButton"
+            tools:ignore="ButtonStyle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            >
+            app:layout_constraintGuide_begin="20dp" />
 
-            <Button
-                android:id="@+id/trueButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/trueAnswer"
-                tools:ignore="ButtonStyle"
-                />
-
-            <Button
-                android:id="@+id/falseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/falseAnswer"
-                tools:ignore="ButtonStyle"
-                />
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
+            app:barrierDirection="left" />
 
-            >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
 
-            <Button
-                android:id="@+id/perv_button"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/pervQ"
-                tools:ignore="ButtonStyle" />
-            <Button
-                android:id="@+id/next_button"
-                android:layout_width="@android:dimen/app_icon_size"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/nextQ"
-                tools:ignore="ButtonStyle" />
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-
-
-        </LinearLayout>
-
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
