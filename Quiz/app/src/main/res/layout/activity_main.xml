@@ -1,84 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical"
-    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txt_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/question_1"
-        android:textAlignment="center"
-        android:textSize="@dimen/textSize"
-        android:padding="@dimen/textPadding"/>
-
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-
-        >
-
-        <Button
-            android:id="@+id/trueButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/trueAnswer"
-            tools:ignore="ButtonStyle"
-            />
-
-        <Button
-            android:id="@+id/falseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/falseAnswer"
-            tools:ignore="ButtonStyle"
-            />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-
-        >
-
-        <Button
-            android:id="@+id/perv_button"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/pervQ"
-            tools:ignore="ButtonStyle" />
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/nextQ"
-            tools:ignore="ButtonStyle" />
-
-
-
-
+                <fragment
+                    android:id="@+id/myNavHostFragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/navigation" />
     </LinearLayout>
 
 
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
