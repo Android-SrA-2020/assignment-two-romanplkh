@@ -51,25 +51,12 @@ class MainFragment : Fragment() {
     ): View? {
 
 
-        Log.i("My Log", "onCreate Called")
-
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate<FragmentMainBinding>(
             inflater,
             R.layout.fragment_main, container, false
         )
-
-
-
-
-        //GET VALUE FROM SAVED STATE
-        if (savedInstanceState != null) {
-            questionIndex = savedInstanceState.getInt("questionIndex", 0)
-            updateView();
-        }
-
-
-
+        
 
         binding.apply {
             nextButton.setOnClickListener {
@@ -106,6 +93,20 @@ class MainFragment : Fragment() {
 
         return binding.root
     }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //GET VALUE FROM SAVED STATE
+        questionIndex = savedInstanceState?.getInt("questionIndex")  ?: questionIndex;
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+               updateView()
+    }
+
 
 
 

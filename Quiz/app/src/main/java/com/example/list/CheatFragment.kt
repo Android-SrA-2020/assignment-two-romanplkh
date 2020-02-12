@@ -39,8 +39,10 @@ class CheatFragment : Fragment() {
         binding.apply {
             quetsionTitleCheat.text = args.questionText;
             cheatButton.setOnClickListener { showAnswer(args.answerText) }
-            cancelCheatButton.setOnClickListener { view:View-> view.findNavController().navigate(R.id.action_cheatFragment_to_mainFragment) }
+            //cancelCheatButton.setOnClickListener { view:View-> view.findNavController().navigate(R.id.action_cheatFragment_to_mainFragment) }
+            cancelCheatButton.setOnClickListener {  activity!!.onBackPressed() }
         }
+
 
 
         return binding.root

@@ -4,6 +4,10 @@
 For this assignment you will update your Quiz app to use binding and navigation component. You will have an About page and a cheat page. You will also implement saving state accross device configuration changes, so the question wont change when you rotate the phone.
 
 Requirements:
+
+create main fragmenf for the 1st screen, about, and cheat
+
+create main fragment and move all code from main_activity.kt to 
   
 * you must implement an about page (fragment)
 * you must implement a cheat page (fragment)
