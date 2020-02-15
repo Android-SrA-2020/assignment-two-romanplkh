@@ -1,6 +1,7 @@
 package com.example.list
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ class CheatFragment : Fragment() {
 
     private lateinit var binding: FragmentCheatBinding;
 
+    @SuppressLint("DefaultLocale")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,9 +40,9 @@ class CheatFragment : Fragment() {
 
         binding.apply {
             quetsionTitleCheat.text = args.questionText;
-            cheatButton.setOnClickListener { showAnswer(args.answerText) }
+            cheatButton.setOnClickListener { showAnswer(args.answerText.capitalize()) }
             //cancelCheatButton.setOnClickListener { view:View-> view.findNavController().navigate(R.id.action_cheatFragment_to_mainFragment) }
-            cancelCheatButton.setOnClickListener {  activity!!.onBackPressed() }
+            cancelCheatButton.setOnClickListener { activity!!.onBackPressed() }
         }
 
 

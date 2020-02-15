@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.list.databinding.FragmentMainBinding
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -102,6 +103,8 @@ class MainFragment : Fragment() {
 
     }
 
+
+    //UPDATE VIEW
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
                updateView()

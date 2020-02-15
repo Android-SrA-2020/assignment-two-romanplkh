@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
        
         //BINDING REFERENCE TO MAIN ACTIVITY LAYOUT
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        
-
-
         val navController = this.findNavController(R.id.myNavHostFragment)
 
 
@@ -42,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         //DRAWER
 
 
-        //INTRODUCE DRAWER TO NAVIGATION AND LINK THEM
+        //INTRODUCE DRAWER(navView) TO NAVIGATION AND LINK THEM
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
